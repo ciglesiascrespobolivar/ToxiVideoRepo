@@ -1,0 +1,35 @@
+<mat-dialog-content class="mat-typography">
+  <div>
+    <div class="subTitulo">
+      <h1>
+        Reservas del usuario {{this.currentUser.name}} {{this.currentUser.lastName}}
+      </h1>
+    </div>
+    <div  *ngFor="let booking of Bookings; index as i" >
+      <div class="col"  >
+        <mat-card class="example-card" >
+          <mat-card-header>
+            <mat-card-title>{{booking.title}}</mat-card-title>
+
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-subtitle>
+              <mat-card-title>Descricción</mat-card-title>
+              {{booking.description}}</mat-card-subtitle>
+            <mat-card-subtitle>
+              <mat-card-title>Director</mat-card-title>
+              {{booking.director}}</mat-card-subtitle>
+            <mat-card-subtitle>
+              <mat-card-title>Stock disponible</mat-card-title>
+              {{booking.stock}}</mat-card-subtitle>
+            <div>
+              <mat-card-title>Actores</mat-card-title>
+              <mat-card-content *ngFor="let actor of booking.actors">
+                {{actor.name}} {{actor.lastName}}</mat-card-content>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
