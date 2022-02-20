@@ -29,9 +29,11 @@ export class AuthenticationService {
   }
 
   login(user: UserLogin): Observable<RespuestaLogin> {
-    return this.http.post<RespuestaLogin>(`${this.baseUrl}/User/session`, user)
+    console.log("usuario",user);
+    return this.http.post<RespuestaLogin>(`${this.baseUrl}/api/v1/user/login`, user)
       .pipe(
         tap(respuesta => {
+          console.log(respuesta);
           if(respuesta.status.ok){
             localStorage.setItem('currentUser', JSON.stringify(respuesta.user));
             this.currentUserSubject.next(respuesta.user);

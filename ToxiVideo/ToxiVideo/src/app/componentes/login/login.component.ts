@@ -45,10 +45,10 @@ export class LoginComponent implements OnInit {
   private buildForm() {
     this.usuario = new User();
     this.usuario.password = '';
-    this.usuario.address = '';
+    this.usuario.email = '';
     this.formulario = this.formBuilder.group({
       password: [this.usuario.password, Validators.required],
-      address: [this.usuario.address, Validators.required],
+      email: [this.usuario.email, Validators.required],
       rol: [this.usuario.rol, Validators.required]
     });
   }

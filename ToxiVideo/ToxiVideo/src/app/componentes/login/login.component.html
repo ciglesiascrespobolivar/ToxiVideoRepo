@@ -10,9 +10,9 @@
     <div class="col">
       <div>
         <label for="inputEmail">Nombre de usuario</label>
-        <input type="email" id="inputEmail" name="CorreoLogin" style="border-radius: 20px"   class="form-control" placeholder="Correo electronico" formControlName="address" [ngClass]="{'is-invalid':  control.address.touched && control.address.errors, 'is-valid':control.address.touched && !control.address.errors}"/>
-        <div *ngIf="control.address.errors" class="invalid-feedback">
-          <div *ngIf="control.address.errors.required">Se require el nombre de usuario</div>
+        <input type="email" id="inputEmail" name="CorreoLogin" style="border-radius: 20px"   class="form-control" placeholder="Correo electronico" formControlName="email" [ngClass]="{'is-invalid':  control.email.touched && control.email.errors, 'is-valid':control.email.touched && !control.email.errors}"/>
+        <div *ngIf="control.email.errors" class="invalid-feedback">
+          <div *ngIf="control.email.errors.required">Se require el nombre de usuario</div>
         </div>
       </div>
       <label for="inputPassword">Contraseña</label>

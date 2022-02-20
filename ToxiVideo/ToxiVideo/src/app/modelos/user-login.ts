@@ -1,5 +1,5 @@
 export class UserLogin {
-  address: string = "";
+  email: string = "";
   password: string = "";
   rol: string = "";
 }

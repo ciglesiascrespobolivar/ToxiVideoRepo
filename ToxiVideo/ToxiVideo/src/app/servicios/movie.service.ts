@@ -23,7 +23,7 @@ export class MovieService {
 
   Todos()
   {
-    return this.http.get<RespuestaMovie>(this.baseUrl+'/Movie');
+    return this.http.get<RespuestaMovie>(this.baseUrl+'/api/v1/catalog/movies');
   }
 
   Registrar(movie: Movie): Observable<Respuesta>

@@ -7,4 +7,5 @@ export class User extends Persona {
   password: string  = "";
   bookings: Booking[] = [];
   rol: string = "client";
+  email: string = "";
 }

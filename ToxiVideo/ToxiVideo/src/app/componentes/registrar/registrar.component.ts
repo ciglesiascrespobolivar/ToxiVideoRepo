@@ -84,7 +84,7 @@ export class RegistrarComponent implements OnInit {
   }
   iniciarSesion(){
     var usuario = new UserLogin();
-    usuario.address = this.user.address;
+    usuario.email = this.user.address;
     usuario.password = this.user.password;
     usuario.rol = "client";
     this.authenticationService.login(usuario).pipe(first())
