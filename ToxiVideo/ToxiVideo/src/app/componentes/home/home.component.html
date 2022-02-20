@@ -1,0 +1,62 @@
+<div  style="background-color: darkgray; min-height: 100vh">
+  <div class="container">
+    <div class="subTitulo" *ngIf="!currentUser">
+      <h1>
+        Por favor inicie session para poder ver las peliculas
+      </h1>
+    </div>
+    <div *ngIf="currentUser" >
+
+      <div class="subTitulo">
+        <h1>Peliculas disponibles</h1>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <button class="btn btn-outline-dark" style="width: 100px" type="submit" (click)="moviesConsultar()">
+          <span class="fas fa-sign-in-alt"></span>actualizar
+        </button>
+      </div>
+      <div class="subTitulo" *ngIf="movies.length == 0">
+        <h3>
+          Actualmente no hay peliculas disponibles!! :(
+        </h3>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <div  *ngFor="let movie of movies; index as i" >
+          <div class="col"  >
+            <mat-card class="example-card" >
+              <mat-card-header>
+                <mat-card-title>{{movie.title}}</mat-card-title>
+
+              </mat-card-header>
+              <mat-card-content>
+                <mat-card-subtitle>
+                  <mat-card-title>Descricción</mat-card-title>
+                  {{movie.description}}</mat-card-subtitle>
+                <mat-card-subtitle>
+                  <mat-card-title>Director</mat-card-title>
+                  {{movie.director}}</mat-card-subtitle>
+                <mat-card-subtitle>
+                  <mat-card-title>Stock disponible</mat-card-title>
+                  {{movie.stock}}</mat-card-subtitle>
+                <div>
+                  <mat-card-title>Actores</mat-card-title>
+                  <mat-card-content *ngFor="let actor of movie.actors">
+                    {{actor.name}} {{actor.lastName}}</mat-card-content>
+                </div>
+              </mat-card-content>
+              <mat-card-actions>
+                <div class="row justify-content-end" *ngIf="currentUser.rol == 'client'">
+                  <button type="button" class="btn btn-outline-danger btnMenu" (click)="reserar(movie.id)"
+                          style="width: 100px; margin-right: 10px">
+                    <span class="fas fa-cart-arrow-down" style="margin-right: 0rem;"></span> Reservar
+                  </button>
+                </div>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
